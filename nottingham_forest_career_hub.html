@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#b5122b">
+<title>NOTTINGHAM FOREST | CLUB HUB</title>
+<style>
+:root{--red:#c8102e;--red2:#9d1026;--ink:#111214;--muted:#73777d;--line:#e6e7e9;--paper:#f4f4f2;--white:#fff;--green:#18794e;--shadow:0 8px 24px rgba(0,0,0,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+.topbar{background:#111;color:#fff;padding:10px max(16px,calc((100vw - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.07em}.crest{width:42px;height:42px;border:2px solid #fff;display:grid;place-items:center;color:#fff;font-family:Georgia,serif;font-size:18px;font-weight:bold;transform:skew(-5deg)}.brand small{display:block;font-size:9px;color:#c7c7c7;letter-spacing:.18em;margin-top:2px}
+.season-pill{font-size:12px;border:1px solid #555;padding:7px 10px;border-radius:99px;color:#eee}
+.hero{background:linear-gradient(110deg,rgba(12,12,14,.96),rgba(65,7,19,.9)),repeating-linear-gradient(135deg,#222 0 2px,#181818 2px 5px);color:#fff;padding:30px 18px 25px}
+.hero-inner{max-width:1120px;margin:auto;display:flex;align-items:end;justify-content:space-between;gap:20px}.eyebrow{color:#ffb4c0;font-size:11px;font-weight:800;letter-spacing:.2em}.hero h1{font-size:clamp(27px,5vw,48px);line-height:1.08;margin:8px 0 9px;letter-spacing:-.04em}.hero p{color:#d3d3d3;margin:0;font-size:13px}.hero-mark{font-family:Georgia,serif;font-size:70px;line-height:1;color:rgba(255,255,255,.12);font-weight:bold}
+.navwrap{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;overflow-x:auto}.nav{max-width:1120px;margin:auto;display:flex;min-width:max-content;padding:0 12px}.nav button{border:0;background:none;padding:16px 15px;font-size:12px;font-weight:850;letter-spacing:.04em;color:#62666c;border-bottom:3px solid transparent}.nav button.active{color:var(--red);border-color:var(--red)}
+main{max-width:1120px;margin:24px auto;padding:0 16px 55px}.page-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:0 0 18px}.page-head h2{font-size:24px;margin:0}.page-head p{font-size:12px;color:var(--muted);margin:5px 0 0}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:17px;box-shadow:0 2px 8px rgba(0,0,0,.025);min-width:0}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-6{grid-column:span 6}.span-4{grid-column:span 4}.span-3{grid-column:span 3}
+.card-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}.card-title h3{margin:0;font-size:14px}.kicker{font-size:10px;letter-spacing:.13em;color:var(--muted);font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{background:#f7f7f7;border-radius:10px;padding:13px}.stat b{font-size:25px;display:block;line-height:1.1}.stat span{font-size:10px;color:var(--muted);font-weight:700}
+.btn{border:0;border-radius:8px;background:var(--red);color:#fff;padding:10px 14px;font-size:12px;font-weight:800}.btn:hover{background:var(--red2)}.btn.secondary{background:#202124}.btn.light{background:#f0f0f0;color:#252525}.btn.danger{background:#8d1828}.btn.small{padding:7px 10px;font-size:11px}
+input,select,textarea{width:100%;border:1px solid #d9dadd;border-radius:8px;padding:10px 11px;background:#fff;color:#171717;min-width:0}textarea{min-height:76px;resize:vertical}label{display:block;font-size:11px;font-weight:800;color:#50545a;margin:0 0 6px}.field{min-width:0}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.formgrid .full{grid-column:1/-1}.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.hint{font-size:11px;color:var(--muted);line-height:1.6}.muted{color:var(--muted)}.empty{padding:23px 12px;text-align:center;color:var(--muted);font-size:12px;border:1px dashed #d4d5d7;border-radius:10px}
+.match{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #eee}.match:last-child{border-bottom:0}.match .opponent{font-weight:850;font-size:14px}.match .meta{font-size:10px;color:var(--muted);margin-top:4px}.score{font-size:21px;font-weight:900;white-space:nowrap}.tag{display:inline-block;padding:4px 7px;border-radius:5px;background:#f1f1f1;color:#555;font-size:10px;font-weight:800}.tag.win{background:#e5f4ec;color:#176b45}.tag.loss{background:#fbe8eb;color:#a01930}
+.player-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.player{border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;gap:12px;align-items:center}.ovr{width:48px;height:48px;border-radius:9px;background:#171717;color:#fff;display:grid;place-items:center;font-size:20px;font-weight:900;flex-shrink:0}.player strong{font-size:13px}.player small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.player .grow{flex:1;min-width:0}.player-actions{display:flex;gap:5px;flex-wrap:wrap}
+.news-item,.post{padding:13px 0;border-bottom:1px solid #eee}.news-item:last-child,.post:last-child{border:0}.news-item strong{font-size:14px;display:block}.news-item p,.post p{font-size:12px;line-height:1.65;color:#4d5157;margin:6px 0}.news-item small,.post small{font-size:10px;color:var(--muted)}.post-handle{font-size:11px;font-weight:900}.post-type{font-size:9px;color:var(--red);font-weight:900;letter-spacing:.1em}
+.table{width:100%;border-collapse:collapse;font-size:11px}.table th,.table td{padding:9px 6px;border-bottom:1px solid #eee;text-align:left}.table th{color:var(--muted);font-size:10px}.table td.num,.table th.num{text-align:right;font-variant-numeric:tabular-nums}
+.section-gap{margin-top:14px}.hidden{display:none!important}.switchline{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700}.switchline input{width:auto}
+footer{text-align:center;color:#999;font-size:10px;padding:20px}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#171717;color:#fff;border-radius:99px;padding:10px 16px;font-size:12px;z-index:20;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}
+@media(max-width:700px){main{margin:18px auto;padding:0 12px 40px}.hero{padding:24px 15px}.hero-mark{font-size:48px}.span-8,.span-6,.span-4,.span-3{grid-column:span 12}.stats{grid-template-columns:repeat(2,1fr)}.player-list{grid-template-columns:1fr}.page-head{align-items:start;flex-direction:column}.formgrid{grid-template-columns:1fr}.formgrid .full{grid-column:auto}.topbar{padding:9px 13px}.nav button{padding:14px 12px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="crest">N F</div><div>NOTTINGHAM FOREST<small>OFFICIAL CAREER HUB</small></div></div>
+  <div class="season-pill" id="seasonBadge">2026/27 SEASON</div>
+</header>
+<section class="hero"><div class="hero-inner"><div><div class="eyebrow">THE REDS · CLUB HUB</div><h1>FOREST<br>NEVER STOPS.</h1><p>試合、選手、移籍、そしてクラブの歴史をここに。</p></div><div class="hero-mark">NFFC</div></div></section>
+<div class="navwrap"><nav class="nav" id="nav">
+<button class="active" data-tab="home">HOME</button><button data-tab="players">FIRST TEAM</button><button data-tab="matches">FIXTURES</button><button data-tab="news">NEWS</button><button data-tab="social">SOCIAL</button><button data-tab="transfers">TRANSFERS</button><button data-tab="settings">設定</button>
+</nav></div>
+<main id="app"></main>
+<footer>NOTTINGHAM FOREST · CAREER MODE CLUB HUB<br>このサイトは個人用の架空クラブ管理ツールです。実在クラブの公式サイトではありません。</footer>
+<div class="toast" id="toast">保存しました</div>
+<script>
+const KEY='forestCareerHub_v1';
+const fresh=()=>({season:'2026/27',seasons:['2026/27'],players:[],matches:[],news:[],posts:[],transfers:[],updatedAt:null});
+let db=load();
+let tab='home';
+function load(){try{const x=JSON.parse(localStorage.getItem(KEY));return x&&x.players?x:fresh()}catch(e){return fresh()}}
+function save(){db.updatedAt=new Date().toISOString();try{localStorage.setItem(KEY,JSON.stringify(db));toast('自動保存しました')}catch(e){toast('保存できません。バックアップをおすすめします')}}
+function toast(s){const t=document.getElementById('toast');t.textContent=s;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1700)}
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const id=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const current=a=>a.filter(x=>x.season===db.season);
+const fmtDate=d=>d?new Date(d+'T00:00:00').toLocaleDateString('ja-JP',{year:'numeric',month:'numeric',day:'numeric'}):'日程未定';
+const split=s=>String(s||'').split(/[,、\n]/).map(x=>x.trim()).filter(Boolean);
+function record(){const ms=current(db.matches).filter(m=>m.played&&m.gf!==''&&m.ga!=='');return {w:ms.filter(m=>+m.gf>+m.ga).length,d:ms.filter(m=>+m.gf===+m.ga).length,l:ms.filter(m=>+m.gf<+m.ga).length,gf:ms.reduce((a,m)=>a+(+m.gf||0),0),ga:ms.reduce((a,m)=>a+(+m.ga||0),0),p:ms.length}}
+function statsFor(p){const ms=current(db.matches).filter(m=>m.played);let apps=0,goals=0,assists=0;ms.forEach(m=>{const names=[...(m.starters||[]),...(m.subs||[])];if(names.includes(p.name))apps++;goals+=(m.scorers||[]).filter(n=>n===p.name).length;assists+=(m.assists||[]).filter(n=>n===p.name).length});return {apps,goals,assists}}
+function pageHead(title,sub,action=''){return `<div class="page-head"><div><h2>${title}</h2><p>${sub}</p></div>${action}</div>`}
+function cardTitle(t,k=''){return `<div class="card-title"><h3>${t}</h3><span class="kicker">${k}</span></div>`}
+function empty(t){return `<div class="empty">${t}</div>`}
+function render(){
+document.getElementById('seasonBadge').textContent=db.season+' SEASON';
+document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+const app=document.getElementById('app');
+if(tab==='home')app.innerHTML=home();
+if(tab==='players')app.innerHTML=playersPage();
+if(tab==='matches')app.innerHTML=matchesPage();
+if(tab==='news')app.innerHTML=newsPage();
+if(tab==='social')app.innerHTML=socialPage();
+if(tab==='transfers')app.innerHTML=transfersPage();
+if(tab==='settings')app.innerHTML=settingsPage();
+bind();
+}
+function home(){
+const r=record(),next=current(db.matches).filter(m=>!m.played).sort((a,b)=>(a.date||'').localeCompare(b.date||''))[0];
+const latest=current(db.news).slice().sort((a,b)=>b.created-a.created).slice(0,3);
+const recent=current(db.matches).filter(m=>m.played).slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')).slice(0,4);
+const scorers=db.players.map(p=>({...p,...statsFor(p)})).filter(p=>p.goals>0).sort((a,b)=>b.goals-a.goals).slice(0,3);
+return `${pageHead('クラブダッシュボード','今シーズンの戦績とクラブの最新情報')}
+<div class="grid">
+<div class="card span-12">${cardTitle('LEAGUE RECORD','SEASON OVERVIEW')}<div class="stats"><div class="stat"><b>${r.p}</b><span>試合数</span></div><div class="stat"><b>${r.w}-${r.d}-${r.l}</b><span>勝-分-敗</span></div><div class="stat"><b>${r.gf}</b><span>得点</span></div><div class="stat"><b>${r.ga}</b><span>失点</span></div></div><p class="hint" style="margin:12px 0 0">ここに表示される成績は、このサイトに入力した試合記録から集計されます。</p></div>
+<div class="card span-6">${cardTitle('NEXT FIXTURE','UPCOMING')} ${next?`<div class="kicker">${fmtDate(next.date)} · ${next.home?'HOME':'AWAY'}</div><h2 style="font-size:24px;margin:10px 0">FOREST <span style="color:var(--red)">VS</span> ${esc(next.opponent)}</h2><p class="hint">${esc(next.competition||'大会未設定')}</p>`:empty('次の試合はまだ登録されていません。FIXTURESから追加できます。')}</div>
+<div class="card span-6">${cardTitle('TOP SCORERS','THIS SEASON')}${scorers.length?`<table class="table"><thead><tr><th>選手</th><th class="num">得点</th><th class="num">出場</th></tr></thead><tbody>${scorers.map(p=>`<tr><td>${esc(p.name)}</td><td class="num"><b>${p.goals}</b></td><td class="num">${p.apps}</td></tr>`).join('')}</tbody></table>`:empty('得点記録はまだありません。詳細入力した試合から集計されます。')}</div>
+<div class="card span-6">${cardTitle('LATEST RESULTS','MATCH CENTRE')}${recent.length?recent.map(m=>matchRow(m)).join(''):empty('試合結果はまだありません。')}</div>
+<div class="card span-6">${cardTitle('LATEST NEWS','CLUB UPDATE')}${latest.length?latest.map(newsItem).join(''):empty('ニュースはまだありません。試合結果や移籍登録から自動作成できます。')}</div>
+</div>`;
+}
+function matchRow(m){const played=m.played;let res=played?(+m.gf>+m.ga?'win':(+m.gf<+m.ga?'loss':'')):'';return `<div class="match"><div><div class="opponent">${esc(m.opponent)}</div><div class="meta">${fmtDate(m.date)} · ${m.home?'HOME':'AWAY'} · ${esc(m.competition||'')}</div></div><div style="text-align:right"><div class="score">${played?`${m.gf} - ${m.ga}`:'VS'}</div><span class="tag ${res}">${played?(res==='win'?'WIN':res==='loss'?'LOSS':'DRAW'):'UPCOMING'}</span></div></div>`}
+function playersPage(){
+const list=db.players.filter(p=>p.active!==false);
+return `${pageHead('ファーストチーム','選手を登録すると、試合記録から出場数・得点・アシストを集計します。')}
+<div class="grid"><div class="card span-4">${cardTitle('ADD PLAYER','選手登録')}<form id="playerForm"><div class="field"><label>選手名 *</label><input name="name" required placeholder="例：Morgan Gibbs-White"></div><div class="formgrid section-gap"><div><label>ポジション</label><select name="pos"><option>GK</option><option>CB</option><option>RB</option><option>LB</option><option>CDM</option><option>CM</option><option>CAM</option><option>RW</option><option>LW</option><option>ST</option><option>CF</option></select></div><div><label>OVR</label><input name="ovr" type="number" min="1" max="99" placeholder="例：80"></div><div><label>年齢</label><input name="age" type="number" min="15" max="60"></div><div><label>国籍</label><input name="nation" placeholder="例：England"></div></div><div class="section-gap"><label>能力値（任意）</label><div class="formgrid"><div><label>PAC</label><input name="pac" type="number" min="1" max="99"></div><div><label>SHO</label><input name="sho" type="number" min="1" max="99"></div><div><label>PAS</label><input name="pas" type="number" min="1" max="99"></div><div><label>DRI</label><input name="dri" type="number" min="1" max="99"></div><div><label>DEF</label><input name="def" type="number" min="1" max="99"></div><div><label>PHY</label><input name="phy" type="number" min="1" max="99"></div></div></div><div class="form-actions"><button class="btn">選手を追加</button></div></form></div>
+<div class="card span-8">${cardTitle('SQUAD LIST',list.length+' PLAYERS')}${list.length?`<div class="player-list">${list.map(p=>{const s=statsFor(p);return `<div class="player"><div class="ovr">${esc(p.ovr||'--')}</div><div class="grow"><strong>${esc(p.name)}</strong><small>${esc(p.pos||'--')} · ${esc(p.nation||'国籍未設定')} · ${p.age?esc(p.age)+'歳':'年齢未設定'}</small><small>出場 ${s.apps} · ゴール ${s.goals} · アシスト ${s.assists}</small></div><div class="player-actions"><button class="btn light small" data-edit-player="${p.id}">編集</button><button class="btn danger small" data-delete-player="${p.id}">削除</button></div></div>`}).join('')}</div>`:empty('選手データはまだありません。左のフォーム、または移籍市場から登録できます。')}</div></div>`;
+}
+function matchesPage(){
+const ms=current(db.matches).slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+return `${pageHead('試合日程・結果','簡単入力と詳細入力に対応。詳細入力した選手名は個人成績に反映されます。')}
+<div class="grid"><div class="card span-4">${cardTitle('ADD MATCH','試合登録')}<form id="matchForm"><div class="field"><label>対戦相手 *</label><input name="opponent" required placeholder="例：Chelsea"></div><div class="formgrid section-gap"><div><label>日付</label><input name="date" type="date"></div><div><label>大会</label><input name="competition" placeholder="Premier League"></div><div><label>会場</label><select name="home"><option value="1">HOME</option><option value="0">AWAY</option></select></div><div><label>入力方法</label><select name="mode" id="matchMode"><option value="quick">簡単入力</option><option value="detail">詳細入力</option></select></div></div>
+<div class="formgrid section-gap"><div><label>フォレスト得点</label><input name="gf" type="number" min="0" placeholder="未確定なら空欄"></div><div><label>相手得点</label><input name="ga" type="number" min="0" placeholder="未確定なら空欄"></div></div>
+<div id="detailFields" class="hidden section-gap"><div class="field"><label>先発選手（選手名をカンマ区切り）</label><textarea name="starters" placeholder="選手A, 選手B, 選手C"></textarea></div><div class="field section-gap"><label>途中出場選手</label><textarea name="subs" placeholder="選手D, 選手E"></textarea></div><div class="field section-gap"><label>得点者（選手名をカンマ区切り）</label><textarea name="scorers" placeholder="選手A, 選手B"></textarea></div><div class="field section-gap"><label>アシスト（選手名をカンマ区切り）</label><textarea name="assists" placeholder="選手C, 選手D"></textarea></div><div class="field section-gap"><label>交代・警告などのメモ</label><textarea name="notes" placeholder="交代時間、警告、退場など"></textarea></div><label class="switchline section-gap"><input name="trailed" type="checkbox"> 試合中に一度リードを許した（SNS反応に反映）</label></div>
+<div class="form-actions"><button class="btn">試合を登録</button></div><p class="hint">得点者・アシストは、選手登録名と同じ表記で入力してください。簡単入力でもスコアは保存されます。</p></form></div>
+<div class="card span-8">${cardTitle('FIXTURES & RESULTS',ms.length+' MATCHES')}${ms.length?ms.map(m=>`<div>${matchRow(m)}<div class="hint" style="padding:0 0 9px">${m.scorers?.length?'得点：'+esc(m.scorers.join('、'))+'　':''}${m.assists?.length?'アシスト：'+esc(m.assists.join('、')):''}${m.notes?'　'+esc(m.notes):''}<button class="btn danger small" style="float:right" data-delete-match="${m.id}">削除</button></div></div>`).join(''):empty('試合はまだ登録されていません。')}</div></div>`;
+}
+function newsItem(n){return `<div class="news-item"><small>${esc(n.date||'CLUB NEWS')} · ${esc(n.category||'NEWS')}</small><strong>${esc(n.title)}</strong><p>${esc(n.body)}</p></div>`}
+function newsPage(){const ns=current(db.news).slice().sort((a,b)=>b.created-a.created);return `${pageHead('クラブニュース','試合結果や移籍登録から自動生成。記事を手動で追加することもできます。')}<div class="grid"><div class="card span-4">${cardTitle('PUBLISH NEWS','記事作成')}<form id="newsForm"><div><label>見出し *</label><input name="title" required></div><div class="section-gap"><label>カテゴリー</label><select name="category"><option>CLUB NEWS</option><option>MATCH REPORT</option><option>TRANSFER</option><option>INTERVIEW</option></select></div><div class="section-gap"><label>本文</label><textarea name="body"></textarea></div><div class="form-actions"><button class="btn">公開する</button></div></form></div><div class="card span-8">${cardTitle('LATEST STORIES',ns.length+' ARTICLES')}${ns.length?ns.map(newsItem).join(''):empty('ニュースはまだありません。')}</div></div>`}
+function socialPage(){const ps=current(db.posts).slice().sort((a,b)=>b.created-a.created);return `${pageHead('FOREST SOCIAL','試合展開に応じて架空のファン投稿を生成。投稿は実在のXユーザーの発言ではありません。')}<div class="grid"><div class="card span-4">${cardTitle('POST','投稿する')}<form id="postForm"><div><label>アカウント名</label><input name="handle" placeholder="@ForestFan"></div><div class="section-gap"><label>投稿内容 *</label><textarea name="body" required></textarea></div><div class="form-actions"><button class="btn">投稿</button></div></form></div><div class="card span-8">${cardTitle('FAN TIMELINE',ps.length+' POSTS')}${ps.length?ps.map(p=>`<div class="post"><div class="post-handle">${esc(p.handle||'@ForestFan')} <span class="post-type">· ${esc(p.type||'FAN POST')}</span></div><p>${esc(p.body)}</p><small>${new Date(p.created).toLocaleString('ja-JP')}</small></div>`).join(''):empty('投稿はまだありません。試合結果を登録すると、スコアや展開に応じた投稿が生成されます。')}</div></div>`}
+function transfersPage(){const ts=current(db.transfers).slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));return `${pageHead('移籍市場','加入・放出・期限付き移籍・契約満了を記録。加入選手はスカッドにも反映されます。')}<div class="grid"><div class="card span-4">${cardTitle('REGISTER TRANSFER','移籍登録')}<form id="transferForm"><div><label>選手名 *</label><input name="name" required></div><div class="formgrid section-gap"><div><label>移籍区分</label><select name="type"><option>完全移籍加入</option><option>完全移籍退団</option><option>ローン加入</option><option>ローン放出</option><option>契約満了</option></select></div><div><label>日付</label><input name="date" type="date"></div></div><div class="formgrid section-gap"><div><label>移籍元 / 移籍先</label><input name="club" placeholder="クラブ名"></div><div><label>移籍金</label><input name="fee" placeholder="例：€25M / Free"></div></div><div class="section-gap"><label>契約・ローン期間</label><input name="contract" placeholder="例：2030年まで / 1年間"></div><div class="form-actions"><button class="btn">移籍を登録</button></div><p class="hint">加入登録時は、選手がスカッドにいなければ基本情報未入力の状態で追加されます。</p></form></div><div class="card span-8">${cardTitle('TRANSFER HISTORY',ts.length+' MOVES')}${ts.length?ts.map(t=>`<div class="news-item"><small>${fmtDate(t.date)} · ${esc(t.type)}</small><strong>${esc(t.name)}</strong><p>${esc(t.club||'クラブ未設定')} · ${esc(t.fee||'移籍金未設定')} · ${esc(t.contract||'契約情報なし')}</p></div>`).join(''):empty('移籍履歴はまだありません。')}</div></div>`}
+function settingsPage(){return `${pageHead('設定・データ管理','データはこのブラウザに自動保存されます。定期的にバックアップしてください。')}<div class="grid"><div class="card span-6">${cardTitle('SEASON MANAGEMENT','シーズン管理')}<form id="seasonForm"><div><label>表示するシーズン</label><select name="season">${[...new Set([...db.seasons,db.season])].map(s=>`<option ${s===db.season?'selected':''}>${esc(s)}</option>`).join('')}</select></div><div class="form-actions"><button class="btn secondary">切り替える</button></div></form><form id="newSeasonForm" class="section-gap"><div><label>新しいシーズンを追加</label><input name="season" placeholder="例：2027/28" required></div><div class="form-actions"><button class="btn">シーズンを追加</button></div></form><p class="hint">シーズンを切り替えても、過去の試合・ニュース・投稿・移籍履歴は残ります。選手名簿はクラブ全体で共有されます。</p></div>
+<div class="card span-6">${cardTitle('BACKUP & RESTORE','重要')}<p class="hint">JSONファイルに全データを保存できます。機種変更やブラウザのデータ消去に備えて、定期的にバックアップしてください。</p><div class="form-actions"><button class="btn" id="backupBtn">バックアップを保存</button><label class="btn light" for="restoreFile" style="margin:0;cursor:pointer">バックアップから復元</label><input class="hidden" id="restoreFile" type="file" accept=".json,application/json"></div><p class="hint">復元すると、現在のデータはバックアップ内容に置き換わります。</p><div class="section-gap"><button class="btn danger" id="clearBtn">全データを削除</button></div></div>
+<div class="card span-12">${cardTitle('DATA STATUS','LOCAL STORAGE')}<p class="hint">最終保存：${db.updatedAt?new Date(db.updatedAt).toLocaleString('ja-JP'):'まだ保存されていません'}<br>保存先：このブラウザのローカルストレージ<br>注意：HTMLファイルを別のブラウザや別の端末で開くと、保存データは自動では共有されません。JSONバックアップを使って移行してください。</p></div></div>`}
+function bind(){
+document.querySelectorAll('#nav button').forEach(b=>b.addEventListener('click',()=>{tab=b.dataset.tab;render()}));
+const pf=document.getElementById('playerForm');if(pf)pf.addEventListener('submit',e=>{e.preventDefault();const f=new FormData(pf),p={id:id(),season:db.season,name:f.get('name').trim(),pos:f.get('pos'),ovr:f.get('ovr'),age:f.get('age'),nation:f.get('nation'),pac:f.get('pac'),sho:f.get('sho'),pas:f.get('pas'),dri:f.get('dri'),def:f.get('def'),phy:f.get('phy'),active:true};db.players.push(p);save();render()});
+document.querySelectorAll('[data-delete-player]').forEach(b=>b.addEventListener('click',()=>{if(confirm('この選手をスカッドから削除しますか？過去の試合記録は残ります。')){const p=db.players.find(x=>x.id===b.dataset.deletePlayer);if(p)p.active=false;save();render()}}));
+document.querySelectorAll('[data-edit-player]').forEach(b=>b.addEventListener('click',()=>{const p=db.players.find(x=>x.id===b.dataset.editPlayer);if(!p)return;const n=prompt('選手名',p.name);if(n===null)return;p.name=n.trim()||p.name;p.ovr=prompt('OVR',p.ovr||'')??p.ovr;p.pos=prompt('ポジション',p.pos||'')??p.pos;save();render()}));
+const mf=document.getElementById('matchForm');if(mf){const mode=mf.elements.mode,detail=document.getElementById('detailFields');mode.addEventListener('change',()=>detail.classList.toggle('hidden',mode.value!=='detail'));mf.addEventListener('submit',e=>{e.preventDefault();const f=new FormData(mf),played=f.get('gf')!==''&&f.get('ga')!=='';const m={id:id(),season:db.season,opponent:f.get('opponent').trim(),date:f.get('date'),competition:f.get('competition'),home:f.get('home')==='1',played,gf:f.get('gf'),ga:f.get('ga'),starters:split(f.get('starters')),subs:split(f.get('subs')),scorers:split(f.get('scorers')),assists:split(f.get('assists')),notes:f.get('notes'),trailed:f.get('trailed')==='on'};db.matches.push(m);if(played)autoMatchContent(m);save();render()})}
+document.querySelectorAll('[data-delete-match]').forEach(b=>b.addEventListener('click',()=>{if(confirm('この試合記録を削除しますか？')){db.matches=db.matches.filter(m=>m.id!==b.dataset.deleteMatch);save();render()}}));
+const nf=document.getElementById('newsForm');if(nf)nf.addEventListener('submit',e=>{e.preventDefault();const f=new FormData(nf);db.news.push({id:id(),season:db.season,created:Date.now(),date:new Date().toLocaleDateString('ja-JP'),category:f.get('category'),title:f.get('title'),body:f.get('body')});save();render()});
+const sf=document.getElementById('postForm');if(sf)sf.addEventListener('submit',e=>{e.preventDefault();const f=new FormData(sf);db.posts.push({id:id(),season:db.season,created:Date.now(),handle:f.get('handle')||'@ForestFan',body:f.get('body'),type:'FAN POST'});save();render()});
+const tf=document.getElementById('transferForm');if(tf)tf.addEventListener('submit',e=>{e.preventDefault();const f=new FormData(tf),type=f.get('type'),name=f.get('name').trim();db.transfers.push({id:id(),season:db.season,name,type,date:f.get('date'),club:f.get('club'),fee:f.get('fee'),contract:f.get('contract')});if(type==='完全移籍加入'||type==='ローン加入'){if(!db.players.some(p=>p.name.toLowerCase()===name.toLowerCase()&&p.active!==false))db.players.push({id:id(),season:db.season,name,pos:'未設定',active:true})}else if(type==='完全移籍退団'||type==='契約満了'||type==='ローン放出'){const p=db.players.find(p=>p.name.toLowerCase()===name.toLowerCase()&&p.active!==false);if(p)p.active=false}db.news.push({id:id(),season:db.season,created:Date.now(),date:fmtDate(f.get('date')),category:'TRANSFER',title:`${name}：${type}`,body:`${name}の${type}を登録しました。${f.get('club')?'関連クラブ：'+f.get('club')+'。':''}${f.get('fee')?'移籍金：'+f.get('fee')+'。':''}`});db.posts.push({id:id(),season:db.season,created:Date.now(),handle:'@ForestFan',type:'TRANSFER REACTION',body:`${name}の${type}が発表・登録された。新シーズンへの影響に注目。`});save();render()});
+const seasonForm=document.getElementById('seasonForm');if(seasonForm)seasonForm.addEventListener('submit',e=>{e.preventDefault();db.season=new FormData(seasonForm).get('season');save();render()});
+const ns=document.getElementById('newSeasonForm');if(ns)ns.addEventListener('submit',e=>{e.preventDefault();const s=new FormData(ns).get('season').trim();if(!db.seasons.includes(s))db.seasons.push(s);db.season=s;save();render()});
+const bb=document.getElementById('backupBtn');if(bb)bb.addEventListener('click',backup);
+const rf=document.getElementById('restoreFile');if(rf)rf.addEventListener('change',restore);
+const cb=document.getElementById('clearBtn');if(cb)cb.addEventListener('click',()=>{if(confirm('全データを削除します。この操作は取り消せません。先にバックアップしましたか？')){db=fresh();save();render()}});
+}
+function autoMatchContent(m){
+const win=+m.gf>+m.ga,draw=+m.gf===+m.ga,loss=+m.gf<+m.ga,high=+m.gf>=3,clean=+m.ga===0;
+let title=win?`フォレストが${m.gf}得点で勝利！`:draw?'フォレスト、勝ち点1を獲得':`フォレストは悔しい敗戦`;
+let body=`${m.opponent}戦は ${m.gf}-${m.ga}。${m.scorers.length?'得点者は'+m.scorers.join('、')+'。':''}${m.assists.length?'アシストは'+m.assists.join('、')+'。':''}${m.notes||''}`;
+db.news.push({id:id(),season:db.season,created:Date.now(),date:fmtDate(m.date),category:'MATCH REPORT',title,body});
+let msgs=[];
+if(win&&high)msgs=['攻撃陣が爆発！この勢いを次の試合にもつなげたい。','今日は前線の連係が抜群だった。見ていて楽しい試合！'];
+else if(win)msgs=['大きな勝ち点3！最後まで集中したチームを誇りに思う。','勝利は最高。次もこのパフォーマンスを続けよう。'];
+else if(draw)msgs=['勝ち点1。良かった部分と改善点を次につなげよう。','あと一歩だった。次の試合で勝ち切りたい。'];
+else msgs=['厳しい結果。ここからどう立て直すかが大事。','悔しい敗戦だけど、次の試合で反応を見せてほしい。'];
+if(clean)msgs.push('クリーンシート達成！守備陣とGKに大きな拍手。');
+if(m.trailed&&win)msgs.push('先制されてもひっくり返した！この粘り強さが今季の武器になる。');
+if(loss&&+m.ga>=3)msgs.push('守備の修正が必要。簡単に相手へチャンスを与えすぎた。');
+msgs.forEach((x,i)=>db.posts.push({id:id(),season:db.season,created:Date.now()+i,handle:['@TrickyTreesFan','@ForestTalk','@OldTrentEnd'][i%3],type:'MATCH REACTION',body:x}));
+}
+function backup(){const blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`forest-career-backup-${db.season.replace('/','-')}.json`;a.click();URL.revokeObjectURL(url);toast('バックアップを作成しました')}
+function restore(e){const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const x=JSON.parse(reader.result);if(!x||!Array.isArray(x.players)||!Array.isArray(x.matches))throw Error();if(confirm('バックアップの内容で現在のデータを置き換えますか？')){db={...fresh(),...x};save();render();toast('復元しました')}}catch(err){alert('バックアップファイルを読み込めませんでした。正しいJSONファイルか確認してください。')}e.target.value=''};reader.readAsText(file)}
+render();
+</script>
+</body>
+</html>
